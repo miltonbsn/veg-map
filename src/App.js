@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import MainMap from './components/MainMap';
 import './App.css';
 
 class App extends Component {
+
+  static defaultProps = {
+    center: {
+      lat: -27.5969,
+      lng: -48.5495 
+    },
+    zoom: 15,
+    mapKey: "AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE"
+  };
+
   render() {
     return (
       <div className="App">
@@ -12,11 +22,7 @@ class App extends Component {
         </header>
 
         <main id="maincontent">
-
-          <section id="map-container">
-            <div id="map" role="application" aria-hidden="true"></div>
-          </section>
-
+          <MainMap mapProps={this.props}/>
         </main>
         
       </div>
