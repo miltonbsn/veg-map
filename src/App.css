@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+header {
+  display: block;
+}
+
+.App-header {
+  display: grid;
+  background-color: white;
+  height: 60px;
+  width: 100%;
+  color: #222;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+.App-header h1 {
+  margin: auto;
+  font-family: 'Raleway', sans-serif;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
