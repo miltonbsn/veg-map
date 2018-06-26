@@ -6,12 +6,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <header className="App-header">
-          <h1 className="App-title">Veg Reviews</h1>
+          <h1 className="App-title">VegViews</h1>
         </header>
-        <p className="App-intro">
-         Dedicado a veganinha mais linda de mundo, Lili
-        </p>
+
+        <main id="maincontent">
+
+          <section id="map-container">
+            <div id="map" role="application" aria-hidden="true"></div>
+          </section>
+
+        </main>
+        
       </div>
     );
   }
