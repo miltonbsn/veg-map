@@ -3,10 +3,6 @@ import GoogleMapReact from 'google-map-react';
 
 export default class MainMap extends Component {
 
-    constructor(props){
-        super(props);
-    }
-
     render() {
         const { mapProps } = this.props;
         return (
