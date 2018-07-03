@@ -11,9 +11,9 @@ header {
   background-color: white;
   height: 60px;
   width: 100%;
-  color: #222;
+  color: #446544;
   text-align: center;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #446544;
 }
 
 .App-header h1 {
@@ -61,5 +61,76 @@ header {
   }
   div.filter-options h2 {
     margin: 10px 20px;
+  }
+}
+
+/* ====================== Restaurant Listing ====================== */
+#restaurants-list {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  grid-gap: 0;
+  background-color: #f3f3f3;
+  list-style: outside none none;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+#restaurants-list li {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  font-family: Arial,sans-serif;
+  margin: 20px;
+  min-height: spx;
+  text-align: left;
+  border-radius: 5px;
+  width: 358px;
+  cursor: pointer;
+}
+#restaurants-list .restaurant-img {
+  display: block;
+  height: 90px;
+  width: 80px;
+}
+#restaurants-list .card-content {
+  padding: 15px;
+}
+
+#restaurants-list .detail-container {
+  display: inline-block;
+  width: 235px;
+  vertical-align: top;
+}
+
+#restaurants-list .img-container {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#restaurants-list li h2 {
+  color: #0a8435;
+  font-family: Arial,sans-serif;
+  font-size: 15px;
+  line-height: 16px;;
+  margin: 0 0 5px; 
+}
+
+#restaurants-list li h3 {
+  margin: 5px 0 5px;
+  font-size: 14px;
+}
+
+#restaurants-list span {
+  color: #8c8c8c;
+  margin: 0;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+
+@media (min-width: 1048px) 
+{
+  #restaurants-list {
+    grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
   }
 }

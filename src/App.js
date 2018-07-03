@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MainMap from './components/MainMap';
-import VegFilter from './components/VegFilter'
+import VegFilter from './components/VegFilter';
+import VegRestaurantList from './components/VegRestaurantList';
+//import restaurants from '.components/mockRestaurants';
 import './App.css';
 
 class App extends Component {
@@ -18,6 +20,7 @@ class App extends Component {
 
     filterProps: [
       {
+        name: "types",
         options: [
           {
             value: "Arabian",
@@ -61,6 +64,7 @@ class App extends Component {
 
           <section>
             <VegFilter filterProps={this.props.filterProps} />
+            <VegRestaurantList/>
           </section>
 
         </main>

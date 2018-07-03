@@ -7,7 +7,7 @@ export default class VegFilter extends Component {
         return (
             <div className="filter-options">
                 <h2>Filter Results</h2>
-                { filterProps.map(selectProp => <VegSelect selectProps={selectProp}/>) }
+                { filterProps.map(selectProp => <VegSelect key={selectProp.name} selectProps={selectProp}/>) }
             </div>
         );
     }

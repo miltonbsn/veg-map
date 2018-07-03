@@ -7,9 +7,11 @@ export default class VegSelect extends Component {
             <select id="neighborhoods-select" 
                     name="neighborhoods" 
                     onChange="updateRestaurants()" 
-                    aria-label="Choose neighborhood">
+                    aria-label="Choose neighborhood"
+                    >
                 {selectProps.options.map(option => (
                     <option 
+                        key={option.value}
                         value={option.value} 
                         aria-selected={option.selected}>
                         {option.text}

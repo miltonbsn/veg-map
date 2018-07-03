@@ -4,7 +4,7 @@ import GoogleMapReact from 'google-map-react';
 export default class MainMap extends Component {
 
     render() {
-        const { mapProps } = this.props;
+        const { mapProps, restaurants } = this.props;
         return (
             <section id="map-container">
                 <div id="map" role="application" aria-hidden="true"></div>
