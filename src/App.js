@@ -2,22 +2,31 @@ import React, { Component } from 'react';
 import MainMap from './components/MainMap';
 import VegFilter from './components/VegFilter';
 import VegRestaurantList from './components/VegRestaurantList';
-//import restaurants from '.components/mockRestaurants';
+import restaurants from './components/mockRestaurants';
 import './App.css';
 
 class App extends Component {
 
-  static defaultProps = {
+  state = { restaurants: [] }
 
+  componentDidMount() {
+    this.setState({restaurants})
+  }
+
+  static defaultProps = {
     mapProps: {
       center: {
         lat: -27.5969,
-        lng: -48.5495 
+        lng: -48.5495,
       },
       zoom: 15,
-      mapKey: "AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE"
+      mapKey: "AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE",
+      componentProps: {
+        googleMapURL:"https://maps.googleapis.com/maps/api/js?key=cRWorrTRRE7710jmbbrGZN5sU1LE&v=3.exp&libraries=geometry,drawing,places",
+        containerElement: "<div style={{ height: `400px` }}/>",
+        mapElement: "<div style={{ height: `400px` }} />"
+      }
     },
-
     filterProps: [
       {
         name: "types",
@@ -39,14 +48,23 @@ class App extends Component {
           },
           {
             value: "Japanese",
-            selected: true,
+            selected: false,
             text: "Japanese"
+          },
+          {
+            value: "Natural",
+            selected: false,
+            text: "Natural"
           }
         ]
       }
     ]
-
   };
+
+  filterByType = ( typeFilter ) => {
+    const filtered = restaurants.filter(restaurant => restaurant.type === typeFilter);
+    this.setState({"restaurants": filtered});
+  } 
 
   render() {
     return (
@@ -59,12 +77,22 @@ class App extends Component {
         <main id="maincontent">
 
           <section>
-            <MainMap mapProps={this.props.mapProps}/>
+            <MainMap 
+              restaurants={this.state.restaurants} 
+              mapProps={this.props.mapProps}
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `400px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+              />
           </section>
 
           <section>
-            <VegFilter filterProps={this.props.filterProps} />
-            <VegRestaurantList/>
+            <VegFilter 
+              filterProps={this.props.filterProps} 
+              filterByType={this.filterByType} 
+            />
+            <VegRestaurantList restaurants={this.state.restaurants}/>
           </section>
 
         </main>

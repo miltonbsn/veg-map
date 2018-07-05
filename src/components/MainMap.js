@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React from 'react';
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer";
 
-export default class MainMap extends Component {
+const MainMap = withScriptjs(withGoogleMap((props) =>
+  <GoogleMap
+    defaultZoom={props.mapProps.zoom}
+    defaultCenter={props.mapProps.center}
+  >
+    <MarkerClusterer
+      onClick={props.onMarkerClustererClick}
+      averageCenter
+      enableRetinaIcons
+      gridSize={60}
+    >
+      {props.restaurants.map(marker => (
+        <Marker
+          key={marker.id}
+          position={{ lat: marker.lat, lng: marker.lng }}
+        />
+      ))}
+    </MarkerClusterer>
+  </GoogleMap>
+))
 
-    render() {
-        const { mapProps, restaurants } = this.props;
-        return (
-            <section id="map-container">
-                <div id="map" role="application" aria-hidden="true"></div>
-                <div style={{ height: '60vh', width: '100%' }}>
-                    <GoogleMapReact
-                        bootstrapURLKeys={{ key: mapProps.mapKey }}
-                        defaultCenter={mapProps.center}
-                        defaultZoom={mapProps.zoom}
-                    >
-                    </GoogleMapReact>
-                </div>
-            </section>
-        );
-    }
+export default MainMap;
 
-}
+
 

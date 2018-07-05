@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 export default class VegSelect extends Component {
     render() {
-        const { selectProps } = this.props;
+        const { selectProps, filterByType } = this.props;
         return (
             <select id="neighborhoods-select" 
                     name="neighborhoods" 
-                    onChange="updateRestaurants()" 
+                    onChange={(event) => filterByType(event.target.value)}
                     aria-label="Choose neighborhood"
                     >
                 {selectProps.options.map(option => (

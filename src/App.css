@@ -127,6 +127,13 @@ header {
   line-height: 16px;
 }
 
+.marker-img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
 
 @media (min-width: 1048px) 
 {
