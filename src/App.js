@@ -47,11 +47,6 @@ class App extends Component {
             text: "Arabian"
           },
           {
-            value: "Italian",
-            selected: false,
-            text: "Italian"
-          },
-          {
             value: "Indian",
             selected: false,
             text: "Indian"
@@ -107,7 +102,7 @@ class App extends Component {
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `400px` }} />}
               mapElement={<div style={{ height: `100%` }} />}
-              />
+            />
           </section>
 
           <section>
@@ -141,6 +136,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 export default App;
