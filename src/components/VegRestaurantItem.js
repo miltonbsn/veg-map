@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 export default class VegRestaurantItem extends Component {
     render() {
-        const { restaurantProps } = this.props;
+        const { restaurantProps, onSelectRestaurant } = this.props;
         return (
-            <li>
+            <li onClick={(e) => onSelectRestaurant({restaurantProps})}>
                 <div className="card-content">
                     <div className="img-container">
                         <img className="restaurant-img"

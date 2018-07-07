@@ -2,7 +2,7 @@ import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer";
 
-const MainMap = withScriptjs(withGoogleMap((props) =>
+const VegMap = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={props.mapProps.zoom}
     defaultCenter={props.mapProps.center}
@@ -23,7 +23,7 @@ const MainMap = withScriptjs(withGoogleMap((props) =>
   </GoogleMap>
 ))
 
-export default MainMap;
+export default VegMap;
 
 
 

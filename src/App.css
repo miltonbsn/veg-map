@@ -96,6 +96,10 @@ header {
   padding: 15px;
 }
 
+#restaurants-list .card-content:hover {
+  background-color: rgba(106, 129, 106, 0.2);
+}
+
 #restaurants-list .detail-container {
   display: inline-block;
   width: 235px;
@@ -127,17 +131,25 @@ header {
   line-height: 16px;
 }
 
-.marker-img {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-
 @media (min-width: 1048px) 
 {
   #restaurants-list {
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
   }
+}
+
+/* ====================== Veg-Modal ====================== */
+
+.veg-modal .title {
+  text-align: center;
+  font-family: 'Raleway';
+  color: #0a8435;
+}
+
+.veg-modal .detail-container {
+  display: block;
+}
+
+.veg-modal .detail-container span {
+  display: block;
 }
