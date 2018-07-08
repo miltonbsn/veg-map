@@ -21,10 +21,10 @@ class App extends Component {
   static defaultProps = {
     mapProps: {
       center: {
-        lat: -27.5969,
-        lng: -48.5495,
+        lat: -27.6221602,
+        lng: -48.4918816,
       },
-      zoom: 15,
+      zoom: 12,
       mapKey: "AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE",
       componentProps: {
         googleMapURL:"https://maps.googleapis.com/maps/api/js?key=cRWorrTRRE7710jmbbrGZN5sU1LE&v=3.exp&libraries=geometry,drawing,places",
@@ -100,7 +100,7 @@ class App extends Component {
               mapProps={this.props.mapProps}
               googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE&v=3.exp&libraries=geometry,drawing,places"
               loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `400px` }} />}
+              containerElement={<div style={{ height: `500px` }} />}
               mapElement={<div style={{ height: `100%` }} />}
             />
           </section>

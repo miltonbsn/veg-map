@@ -68,7 +68,7 @@ header {
 #restaurants-list {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
   grid-gap: 0;
   background-color: #f3f3f3;
   list-style: outside none none;
@@ -80,7 +80,7 @@ header {
   background-color: #fff;
   border: 1px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 20px;
+  margin: 8px;
   min-height: spx;
   text-align: left;
   border-radius: 5px;
@@ -93,7 +93,7 @@ header {
   width: 80px;
 }
 #restaurants-list .card-content {
-  padding: 15px;
+  padding: 10px;
 }
 
 #restaurants-list .card-content:hover {
@@ -134,7 +134,7 @@ header {
 @media (min-width: 1048px) 
 {
   #restaurants-list {
-    grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
   }
 }
 

@@ -11,7 +11,7 @@ const VegMap = withScriptjs(withGoogleMap((props) =>
       onClick={props.onMarkerClustererClick}
       averageCenter
       enableRetinaIcons
-      gridSize={60}
+      gridSize={10}
     >
       {props.restaurants.map(marker => (
         <Marker
