@@ -131,10 +131,29 @@ header {
   line-height: 16px;
 }
 
-@media (min-width: 1048px) 
+@media (max-width: 376px) 
 {
   #restaurants-list {
+    background: #0a8435;
     grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+  }
+}
+
+@media (max-width: 321px) 
+{
+  #restaurants-list {
+    background: red;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  }
+
+  #restaurants-list li{
+    width: 300px;
+  }
+
+  #restaurants-list .detail-container {
+    display: inline-block;
+    width: 180px;
+    vertical-align: top;
   }
 }
 
