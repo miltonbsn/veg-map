@@ -17,6 +17,7 @@ const VegMap = withScriptjs(withGoogleMap((props) =>
         <Marker
           key={marker.id}
           position={{ lat: marker.lat, lng: marker.lng }}
+          onClick={(e) => props.onSelectRestaurant(marker)}
         />
       ))}
     </MarkerClusterer>

@@ -10,7 +10,7 @@ class App extends Component {
 
   state = { 
     restaurants: [],
-    selectedRestaurante: null,
+    selectedRestaurante: {},
     modalOpenned: false
   }
 
@@ -80,12 +80,13 @@ class App extends Component {
   } 
 
   openModal = ( selectedRestaurante ) => {
+    console.log(selectedRestaurante);
     this.setState({selectedRestaurante});
     this.setState({"modalOpenned": true});
   }
 
   closeModal = () => {
-    this.setState({"selectedRestaurante":null});
+    this.setState({"selectedRestaurante":{}});
     this.setState({"modalOpenned": false});
   }
 
@@ -107,6 +108,7 @@ class App extends Component {
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `500px` }} />}
               mapElement={<div style={{ height: `100%` }} />}
+              onSelectRestaurant={this.openModal}
             />
           </section>
 
@@ -126,11 +128,11 @@ class App extends Component {
               <h2 className="title">Veg detail</h2>
               <div className="modal-content">
                   <div className="detail-container"> 
-                      <span>Mercado Sehat</span>
-                      <span>Indonesian</span>
-                      <span>Av. Pequeno Príncipe, 859 - Campeche, Florianópolis - SC, 88063-000</span>
-                      <span>08:15–19:00</span>
-                      <span>http://www.mercadosehat.com.br/</span>
+                      <span>{this.state.selectedRestaurante.name}</span>
+                      <span>{this.state.selectedRestaurante.type}</span>
+                      <span>{this.state.selectedRestaurante.address}</span>
+                      <span>{this.state.selectedRestaurante.hours}</span>
+                      <span>{this.state.selectedRestaurante.website}</span>
                   </div>
               </div>
             </Modal>
