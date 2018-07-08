@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import VegMap from './components/VegMap';
 import VegFilter from './components/VegFilter';
 import VegRestaurantList from './components/VegRestaurantList';
-import restaurants from './components/mockRestaurants';
 import filterConfig from './config/FilterConfig';
 import mapConfig from './config/MapConfig';
 import Modal from 'react-responsive-modal';
+import * as VegApi from './apis/VegApi'
 import './App.css';
 
 class App extends Component {
@@ -17,7 +17,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({restaurants})
+    console.log(VegApi.getAll());
+    VegApi.getAll().then((restaurants) => {
+      this.setState({restaurants})
+    });
   }
 
   static defaultProps = {
@@ -26,7 +29,7 @@ class App extends Component {
   };
 
   filterByType = ( typeFilter ) => {
-    const filtered = restaurants.filter(restaurant => {
+    const filtered = this.state.restaurants.filter(restaurant => {
       if(typeFilter === 'ALL') return true;
       return restaurant.type === typeFilter
     });
