@@ -3,6 +3,8 @@ import VegMap from './components/VegMap';
 import VegFilter from './components/VegFilter';
 import VegRestaurantList from './components/VegRestaurantList';
 import restaurants from './components/mockRestaurants';
+import filterConfig from './config/FilterConfig';
+import mapConfig from './config/MapConfig';
 import Modal from 'react-responsive-modal';
 import './App.css';
 
@@ -19,56 +21,8 @@ class App extends Component {
   }
 
   static defaultProps = {
-    mapProps: {
-      center: {
-        lat: -27.6221602,
-        lng: -48.4918816,
-      },
-      zoom: 12,
-      mapKey: "AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE",
-      componentProps: {
-        googleMapURL:"https://maps.googleapis.com/maps/api/js?key=cRWorrTRRE7710jmbbrGZN5sU1LE&v=3.exp&libraries=geometry,drawing,places",
-        containerElement: "<div style={{ height: `400px` }}/>",
-        mapElement: "<div style={{ height: `400px` }} />"
-      }
-    },
-    filterProps: [
-      {
-        name: "types",
-        options: [
-          {
-            value: "ALL",
-            selected: true,
-            text: "All types"
-          },
-          {
-            value: "Arabian",
-            selected: false,
-            text: "Arabian"
-          },
-          {
-            value: "Indian",
-            selected: false,
-            text: "Indian"
-          },
-          {
-            value: "Japonese",
-            selected: false,
-            text: "Japonese"
-          },
-          {
-            value: "Natural",
-            selected: false,
-            text: "Natural"
-          },
-          {
-            value: "Mexican",
-            selected: false,
-            text: "Mexican"
-          }
-        ]
-      }
-    ]
+    mapProps: mapConfig,
+    filterProps: filterConfig
   };
 
   filterByType = ( typeFilter ) => {
@@ -80,7 +34,6 @@ class App extends Component {
   } 
 
   openModal = ( selectedRestaurante ) => {
-    console.log(selectedRestaurante);
     this.setState({selectedRestaurante});
     this.setState({"modalOpenned": true});
   }
@@ -104,7 +57,7 @@ class App extends Component {
             <VegMap 
               restaurants={this.state.restaurants} 
               mapProps={this.props.mapProps}
-              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe3C-cRWorrTRRE7710jmbbrGZN5sU1LE&v=3.exp&libraries=geometry,drawing,places"
+              googleMapURL={this.props.mapProps.url}
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `500px` }} />}
               mapElement={<div style={{ height: `100%` }} />}
