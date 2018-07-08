@@ -1,7 +1,7 @@
 export default [{
     id: "#1",
     name: "Mercado Sehat",
-    type: "Indonesian",
+    type: "Asian",
     address: "Av. Pequeno Príncipe, 859 - Campeche, Florianópolis - SC, 88063-000",
     hours: "08:15–19:00",
     website: "http://www.mercadosehat.com.br/",

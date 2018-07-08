@@ -52,14 +52,19 @@ class App extends Component {
             text: "Indian"
           },
           {
-            value: "Japanese",
+            value: "Japonese",
             selected: false,
-            text: "Japanese"
+            text: "Japonese"
           },
           {
             value: "Natural",
             selected: false,
             text: "Natural"
+          },
+          {
+            value: "Mexican",
+            selected: false,
+            text: "Mexican"
           }
         ]
       }
