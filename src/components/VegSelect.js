@@ -7,7 +7,7 @@ export default class VegSelect extends Component {
             <select id="neighborhoods-select" 
                     name="neighborhoods" 
                     onChange={(event) => filterByType(event.target.value)}
-                    aria-label="Choose neighborhood"
+                    aria-label="Choose cousine type"
                     >
                 {selectProps.options.map(option => (
                     <option 
