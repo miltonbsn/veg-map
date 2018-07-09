@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(VegApi.getAll());
     VegApi.getAll().then((restaurants) => {
       this.setState({restaurants})
     });
