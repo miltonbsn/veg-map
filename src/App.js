@@ -12,7 +12,7 @@ class App extends Component {
 
   state = { 
     restaurants: [],
-    selectedRestaurante: {},
+    selectedRestaurant: {},
     modalOpenned: false
   }
 
@@ -37,13 +37,13 @@ class App extends Component {
     this.setState({"restaurants": filtered});
   } 
 
-  openModal = ( selectedRestaurante ) => {
-    this.setState({selectedRestaurante});
+  openModal = ( selectedRestaurant ) => {
+    this.setState({selectedRestaurant});
     this.setState({"modalOpenned": true});
   }
 
   closeModal = () => {
-    this.setState({"selectedRestaurante":{}});
+    this.setState({"selectedRestaurant":{}});
     this.setState({"modalOpenned": false});
   }
 
@@ -66,6 +66,7 @@ class App extends Component {
               containerElement={<div style={{ height: `500px` }} />}
               mapElement={<div style={{ height: `100%` }} />}
               onSelectRestaurant={this.openModal}
+              selectedRestaurant={this.state.selectedRestaurant}
             />
           </section>
 
@@ -85,11 +86,11 @@ class App extends Component {
               <h2 className="title">Veg detail</h2>
               <div className="modal-content">
                   <div className="detail-container"> 
-                      <span>{this.state.selectedRestaurante.name}</span>
-                      <span>{this.state.selectedRestaurante.type}</span>
-                      <span>{this.state.selectedRestaurante.address}</span>
-                      <span>{this.state.selectedRestaurante.hours}</span>
-                      <span>{this.state.selectedRestaurante.website}</span>
+                      <span>{this.state.selectedRestaurant.name}</span>
+                      <span>{this.state.selectedRestaurant.type}</span>
+                      <span>{this.state.selectedRestaurant.address}</span>
+                      <span>{this.state.selectedRestaurant.hours}</span>
+                      <span>{this.state.selectedRestaurant.website}</span>
                   </div>
               </div>
             </Modal>

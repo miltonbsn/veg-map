@@ -18,6 +18,7 @@ const VegMap = withScriptjs(withGoogleMap((props) =>
           key={marker.id}
           position={{ lat: marker.lat, lng: marker.lng }}
           onClick={(e) => props.onSelectRestaurant(marker)}
+          animation={props.selectedRestaurant != null && marker.id === props.selectedRestaurant.id ? window.google.maps.Animation.BOUNCE : null}
         />
       ))}
     </MarkerClusterer>

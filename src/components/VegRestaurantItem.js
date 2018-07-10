@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 
 export default class VegRestaurantItem extends Component {
 
-    //ESCAPE_KEY = 27;
     handleKeyPress = (event, restaurantProps, onSelectRestaurant) => {
-        console.log("handle");
-        if(event.key === 'Enter'){
-            console.log("click");
-            onSelectRestaurant(restaurantProps);
-        } 
+        if(event.key === 'Enter') onSelectRestaurant(restaurantProps);
     }
 
     render() {
         const { restaurantProps, onSelectRestaurant } = this.props;
         return (
-            <li onClick={(e) => onSelectRestaurant(restaurantProps)} onKeyDown={(e) =>  { console.log("handle"); this.handleKeyPress(e, restaurantProps, onSelectRestaurant)}} tabIndex="0">
+            <li onClick={(e) => onSelectRestaurant(restaurantProps)} onKeyDown={(e) => this.handleKeyPress(e, restaurantProps, onSelectRestaurant)} tabIndex="0">
                 <div className="card-content">
                     <div className="img-container">
                         <img className="restaurant-img"
