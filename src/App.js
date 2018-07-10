@@ -16,19 +16,21 @@ class App extends Component {
     modalOpenned: false
   }
 
+  static defaultProps = {
+    mapProps: mapConfig,
+    filterProps: filterConfig,
+    allRestaurants :[]
+  };
+
   componentDidMount() {
     VegApi.getAll().then((restaurants) => {
-      this.setState({restaurants})
+      this.setState({restaurants});
+      this.props.allRestaurants.push(...restaurants);
     });
   }
 
-  static defaultProps = {
-    mapProps: mapConfig,
-    filterProps: filterConfig
-  };
-
   filterByType = ( typeFilter ) => {
-    const filtered = this.state.restaurants.filter(restaurant => {
+    const filtered = this.props.allRestaurants.filter(restaurant => {
       if(typeFilter === 'ALL') return true;
       return restaurant.type === typeFilter
     });
