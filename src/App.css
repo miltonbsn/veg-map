@@ -89,8 +89,8 @@ header {
 }
 #restaurants-list .restaurant-img {
   display: block;
-  height: 90px;
-  width: 80px;
+  height: 64px;
+  width: 64px;
 }
 #restaurants-list .card-content {
   padding: 10px;
@@ -109,6 +109,8 @@ header {
 #restaurants-list .img-container {
   display: inline-block;
   margin-right: 10px;
+  background-color: #0a8435;
+  border-radius: 2px;
 }
 
 #restaurants-list li h2 {

@@ -8,6 +8,11 @@ export default [
           text: "All types"
         },
         {
+          value: "Asian",
+          selected: false,
+          text: "Asian"
+        },
+        {
           value: "Arabian",
           selected: false,
           text: "Arabian"

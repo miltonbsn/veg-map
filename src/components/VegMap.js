@@ -16,7 +16,7 @@ const VegMap = withScriptjs(withGoogleMap((props) =>
       {props.restaurants.map(marker => (
         <Marker
           key={marker.id}
-          position={{ lat: marker.lat, lng: marker.lng }}
+          position={{ lat: marker.location.lat, lng: marker.location.lng }}
           onClick={(e) => props.onSelectRestaurant(marker)}
           animation={props.selectedRestaurant != null && marker.id === props.selectedRestaurant.id ? window.google.maps.Animation.BOUNCE : null}
         />
