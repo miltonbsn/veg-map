@@ -8,34 +8,34 @@ export default [
           text: "All types"
         },
         {
-          value: "Asian",
+          value: "Vegetarian / Vegan Restaurant",
           selected: false,
-          text: "Asian"
+          text: "All Vegan"
         },
         {
-          value: "Arabian",
+          value: "Restaurant",
           selected: false,
-          text: "Arabian"
+          text: "Restaurant"
         },
         {
-          value: "Indian",
+          value: "Hot Dog Joint",
           selected: false,
-          text: "Indian"
+          text: "Hot Dog Joint"
         },
         {
-          value: "Japonese",
+          value: "Brazilian Restaurant",
           selected: false,
-          text: "Japonese"
+          text: "Brazilian Restaurant"
         },
         {
-          value: "Natural",
+          value: "Italian Restaurant",
           selected: false,
-          text: "Natural"
+          text: "Italian Restaurant"
         },
         {
-          value: "Mexican",
+          value: "Chinese Restaurant",
           selected: false,
-          text: "Mexican"
+          text: "Chinese Restaurant"
         }
       ]
     }

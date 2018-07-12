@@ -32,7 +32,7 @@ class App extends Component {
   filterByType = ( typeFilter ) => {
     const filtered = this.props.allRestaurants.filter(restaurant => {
       if(typeFilter === 'ALL') return true;
-      return restaurant.type === typeFilter
+      return restaurant.categories[0].name === typeFilter
     });
     this.setState({"restaurants": filtered});
   } 
