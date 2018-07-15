@@ -18,7 +18,7 @@ export default class VegRestaurantItem extends Component {
                 <div className="card-content">
                     <div className="img-container">
                         <img className="restaurant-img"
-                            alt={`Restaurant ${restaurantProps.name} - cuisine ${restaurantProps.type}`}
+                            alt={`Restaurant ${restaurantProps.name}`}
                             src={this.buildIconUrl(category)}
                         />
                     </div>

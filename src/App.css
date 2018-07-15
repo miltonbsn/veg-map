@@ -174,3 +174,22 @@ header {
 .veg-modal .detail-container span {
   display: block;
 }
+
+/* ====================== Error fallback ====================== */
+
+.map-error-container {
+  height: 400px;
+  width: 100%;
+  background-color: #d2e1d2;
+  display: grid;
+  align-items: center;	
+}
+
+.map-error-container .error-section {
+  vertical-align: center;
+}
+
+.error-section h2{
+  margin: 0;
+  padding-bottom: 10px;
+}

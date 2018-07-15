@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VegMap from './components/VegMap';
+import VegMapErrorBoundery from './components/VegMapErrorBoundery';
 import VegFilter from './components/VegFilter';
 import VegRestaurantList from './components/VegRestaurantList';
 import filterConfig from './config/FilterConfig';
@@ -23,9 +24,14 @@ class App extends Component {
   };
 
   componentDidMount() {
-    VegApi.getAll().then((restaurants) => {
+    VegApi.getAll()
+    .then((restaurants)=>{
+      console.log(restaurants);
       this.setState({restaurants});
       this.props.allRestaurants.push(...restaurants);
+    })
+    .catch(function(err){
+      console.error('Failed retrieving information', err);
     });
   }
 
@@ -58,16 +64,18 @@ class App extends Component {
         <main id="maincontent">
 
           <section>
-            <VegMap 
-              restaurants={this.state.restaurants} 
-              mapProps={this.props.mapProps}
-              googleMapURL={this.props.mapProps.url}
-              loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `500px` }} />}
-              mapElement={<div style={{ height: `100%` }} />}
-              onSelectRestaurant={this.openModal}
-              selectedRestaurant={this.state.selectedRestaurant}
-            />
+          <VegMapErrorBoundery>
+              <VegMap 
+                restaurants={this.state.restaurants} 
+                mapProps={this.props.mapProps}
+                googleMapURL={this.props.mapProps.url}
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `500px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+                onSelectRestaurant={this.openModal}
+                selectedRestaurant={this.state.selectedRestaurant}
+              /> 
+            </VegMapErrorBoundery>
           </section>
 
           <section>
@@ -82,7 +90,10 @@ class App extends Component {
           </section>
 
           <section>
-            <Modal open={this.state.modalOpenned} onClose={this.closeModal} center classNames={{modal:'veg-modal'}}>
+            <Modal open={this.state.modalOpenned} 
+                   onClose={this.closeModal}
+                   classNames={{modal:'veg-modal'}}
+                   center>
               <h2 className="title">Veg detail</h2>
               <div className="modal-content">
                   <div className="detail-container"> 
