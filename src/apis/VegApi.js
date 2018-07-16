@@ -13,7 +13,8 @@ export const getAll = () => {
                     return venue;
                 });
                 resolve(data);
-            });
+            })
+            .catch(error => console.log(error));
      });
 }
 
