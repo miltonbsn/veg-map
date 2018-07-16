@@ -5,7 +5,14 @@ const url = 'https://api.foursquare.com/v2/venues/explore?client_id=M3NWSYKLIE0V
 
 export const getAll = () => {
     //   return fetch(url);
-      const data = foursquare.response.groups[0].items.map(item => item.venue);
+      const data = foursquare.response.groups[0].items.map(item => {
+          const venue = item.venue;
+          const address = venue.location.formattedAddress;
+          const formattedAddress = address.join(", ");
+          venue.customAddress = formattedAddress;
+          return venue;
+      });
+
      return new Promise((resolve) => resolve(data));
 }
 

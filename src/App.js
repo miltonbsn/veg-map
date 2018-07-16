@@ -26,7 +26,6 @@ class App extends Component {
   componentDidMount() {
     VegApi.getAll()
     .then((restaurants)=>{
-      console.log(restaurants);
       this.setState({restaurants});
       this.props.allRestaurants.push(...restaurants);
     })
@@ -98,10 +97,7 @@ class App extends Component {
               <div className="modal-content">
                   <div className="detail-container"> 
                       <span>{this.state.selectedRestaurant.name}</span>
-                      <span>{this.state.selectedRestaurant.type}</span>
-                      <span>{this.state.selectedRestaurant.address}</span>
-                      <span>{this.state.selectedRestaurant.hours}</span>
-                      <span>{this.state.selectedRestaurant.website}</span>
+                      <span>{this.state.selectedRestaurant.customAddress}</span>
                   </div>
               </div>
             </Modal>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import default_img from '../imgs/default_64.png';
 
 export default class VegRestaurantItem extends Component {
 
@@ -8,6 +9,10 @@ export default class VegRestaurantItem extends Component {
 
     buildIconUrl = (category) => {
         return `${category.icon.prefix}64${category.icon.suffix}`;
+    }
+
+    handleBrokenImg = (event) => {
+        event.target.src = default_img;
     }
 
     render() {
@@ -20,6 +25,7 @@ export default class VegRestaurantItem extends Component {
                         <img className="restaurant-img"
                             alt={`Restaurant ${restaurantProps.name}`}
                             src={this.buildIconUrl(category)}
+                            onError={this.handleBrokenImg}
                         />
                     </div>
                     <div className="detail-container"> 
