@@ -34,6 +34,10 @@ class App extends Component {
     });
   }
 
+  /**
+   * @param {string} typeFilter
+   * Filter the list of restaurants by type.
+   */
   filterByType = ( typeFilter ) => {
     const filtered = this.props.allRestaurants.filter(restaurant => {
       if(typeFilter === 'ALL') return true;

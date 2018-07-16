@@ -3,6 +3,12 @@ import default_img from '../imgs/default_64.png';
 
 export default class VegRestaurantItem extends Component {
 
+    /**
+     * @param {object} event
+     * @param {object} restaurantProps
+     * @param {function} onSelectRestaurant
+     * Call function that open the detail modal on user key press.
+    */
     handleKeyPress = (event, restaurantProps, onSelectRestaurant) => {
         if(event.key === 'Enter') onSelectRestaurant(restaurantProps);
     }
