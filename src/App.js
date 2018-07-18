@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import VegMap from './components/VegMap';
 import VegMapErrorBoundery from './components/VegMapErrorBoundery';
+import VegRestaurantListErrorBoundery from './components/VegRestaurantListErrorBoundery';
 import VegFilter from './components/VegFilter';
 import VegRestaurantList from './components/VegRestaurantList';
 import filterConfig from './config/FilterConfig';
@@ -14,7 +15,8 @@ class App extends Component {
   state = { 
     restaurants: [],
     selectedRestaurant: {},
-    modalOpenned: false
+    modalOpenned: false,
+    restaurantsLoadedError: false
   }
 
   static defaultProps = {
@@ -23,14 +25,19 @@ class App extends Component {
     allRestaurants :[]
   };
 
+  gm_authFailure = () => {
+    window.alert("Google Maps authentication error!")
+  }
+
   componentDidMount() {
+    window.gm_authFailure = this.gm_authFailure;
     VegApi.getAll()
-    .then((restaurants)=>{
+    .then((restaurants) => {
       this.setState({restaurants});
       this.props.allRestaurants.push(...restaurants);
     })
-    .catch(function(err){
-      console.error('Failed retrieving information', err);
+    .catch((err) => {
+      this.setState({restaurantsLoadedError: true});
     });
   }
 
@@ -86,10 +93,13 @@ class App extends Component {
               filterProps={this.props.filterProps} 
               filterByType={this.filterByType} 
             />
-            <VegRestaurantList 
-              restaurants={this.state.restaurants}
-              onSelectRestaurant={this.openModal}
-            />
+            <VegRestaurantListErrorBoundery restaurantsLoadedError={this.state.restaurantsLoadedError}>
+              <VegRestaurantList 
+                restaurants={this.state.restaurants}
+                onSelectRestaurant={this.openModal}
+                restaurantsLoadedError={this.state.restaurantsLoadedError}
+              />
+            </VegRestaurantListErrorBoundery>
           </section>
 
           <section>

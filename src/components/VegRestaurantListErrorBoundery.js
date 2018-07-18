@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-export default class VegMapErrorBoundery extends Component {
+export default class VegRestaurantListErrorBoundery extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {hasError: false}; 
     }
 
     componentDidCatch(error, info) {
@@ -12,11 +11,12 @@ export default class VegMapErrorBoundery extends Component {
     }
 
     render() {
-        if(this.state.hasError) {
-            return  <div className="map-error-container"> 
+        if(this.props.restaurantsLoadedError) {
+            return  <div className="map-error-container list-error"> 
                         <div className="error-section">
                             <h2> Ops... Something went wrong! </h2>
-                            <span> It wasn't possible to load your map. Please check your internet conection! </span>
+                            <span> It wasn't possible to load your vegetarian restaurants ;( </span>
+                            <span> Check your connection or try later... </span>
                         </div>
                     </div>
         }

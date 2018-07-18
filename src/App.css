@@ -193,3 +193,7 @@ header {
   margin: 0;
   padding-bottom: 10px;
 }
+
+.map-error-container.list-error {
+  background-color: #ccc;
+}
